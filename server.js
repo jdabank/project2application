@@ -28,6 +28,8 @@ mongoose.connect(MONGODB_URI, () => {
   console.log('Praying to monGod...')
 })
 
+
+
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
@@ -41,7 +43,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
@@ -52,15 +54,17 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/restaurants/seed' , (req, res) => {
-  Restaurant.create(seedData, (err, createdData) => {
-    console.log('Added restaurants')
-  })
-  res.redirect('/restaurants')
-})
+// app.get('/restaurants/seed', (req, res) => {
+//   Restaurant.create(seedData, (err, createdData) => {
+//     console.log('Added restaurants')
+//   })
+//   res.redirect('/restaurants')
+// })
 
 app.get('/restaurants', (req, res) => {
-  res.render('restaurants.ejs')
+  Restaurant.find({}, (err, allRest) => {
+  res.render('restaurants.ejs', {restaurants: allRest})
+})
 })
 
 //___________________
