@@ -4,6 +4,8 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const Restaurant = require('./models/restaurantschema.js');
+const seedData = require('./models/restaurants.js');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
@@ -50,9 +52,16 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/restaurants' , (req, res) => {
-  res.render('restaurants.ejs');
-});
+app.get('/restaurants/seed' , (req, res) => {
+  Restaurant.create(seedData, (err, createdData) => {
+    console.log('Added restaurants')
+  })
+  res.redirect('/restaurants')
+})
+
+app.get('/restaurants', (req, res) => {
+  res.render('restaurants.ejs')
+})
 
 //___________________
 //Listener
