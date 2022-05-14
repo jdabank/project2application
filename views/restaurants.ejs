@@ -2,9 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Restaurants</title>
+  <style>
+  </style>
   </head>
   <body>
-   <%=restaurants[0].food[1].name%>
+  <table>
+    <h1>Eatr</h1>
+    <h4>Remember what you liked</h4>
+    <%for (let i = 0; i < restaurants.length; i++){%>
+      <tr>
+        <td><a href = '#'><%=restaurants[i].name%></a></td>
+        <td><%=restaurants[i].price%></td>
+        <td><%=restaurants[i].location%></td>
+      </tr>
+    <%}%>
+ </table>
   </body>
 </html>

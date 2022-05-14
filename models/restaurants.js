@@ -110,35 +110,7 @@ const restaurants = [
             full: false
           }
           ]
-        },
-        {
-          name: 'Abiko Curry',
-          location: 'New York, NY',
-          price: '$$',
-          food: [
-            {
-              name: 'Shrimp Curry Rice',
-              price: 14.99 * 1.08875,
-              rating: 10,
-              spicy: true,
-              full: true
-            },
-            {
-              name: 'Herb Chicken Curry Noodle',
-              price: 13.99 * 1.08875,
-              rating: 6,
-              spicy: true,
-              full: true
-            },
-            {
-              name: 'Croquette',
-              price: 2.99 * 1.08875,
-              rating: 8,
-              spicy: false,
-              full: false
-            }
-            ]
-          }
+        }
 ]
 
 module.exports = restaurants
