@@ -67,6 +67,12 @@ app.get('/restaurants', (req, res) => {
 })
 })
 
+app.get('/restaurants/:id', (req, res) => {
+  Restaurant.findById(req.params.id, (err, restaurants) => {
+    res.render('restaurantshowpage.ejs', {restaurants: restaurants})
+  })
+})
+
 //___________________
 //Listener
 //___________________

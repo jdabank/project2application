@@ -12,7 +12,7 @@
     <h4>Remember what you liked</h4>
     <%for (let i = 0; i < restaurants.length; i++){%>
       <tr>
-        <td><a href = '#'><%=restaurants[i].name%></a></td>
+        <td><a href = '/restaurants/<%=restaurants[i].id%>'><%=restaurants[i].name%></a></td>
         <td><%=restaurants[i].price%></td>
         <td><%=restaurants[i].location%></td>
       </tr>
