@@ -101,10 +101,9 @@ app.delete('/restaurants/:id', (req, res) => {
   })
 })
 
-app.get('/restaurants/:id/:name', (req, res) => {
+app.get('/restaurants/:id/:index', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
-    console.log(req.params.name)
-    res.render('foodshowpage.ejs', {restaurants: restaurant})
+    res.render('foodshowpage.ejs', {restaurants: restaurant, index: req.params.index})
   })
 })
 

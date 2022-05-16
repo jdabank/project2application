@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Restaurants</title>
-  <style>
-  </style>
+<link rel="stylesheet" href="/universal.css">
   </head>
   <body>
     <h1>Eatr</h1>
@@ -12,14 +11,14 @@
   <table>
     <tr>
       <th>Name</th>
-      <th>Price</th>
       <th>Location</th>
+      <th>Price</th>
     </tr>
     <%for (let i = 0; i < restaurants.length; i++){%>
       <tr>
         <td><a href = '/restaurants/<%=restaurants[i].id%>'><%=restaurants[i].name%></a></td>
-        <td><%=restaurants[i].price%></td>
         <td><%=restaurants[i].location%></td>
+        <td><%=restaurants[i].price%></td>
         <td><a href = '/restaurants/<%=restaurants[i].id%>/edit'>Edit Restaurant</a></td>
       </tr>
     <%}%>
