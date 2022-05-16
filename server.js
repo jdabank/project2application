@@ -61,6 +61,16 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //   res.redirect('/restaurants')
 // })
 
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body, (err, madeRest) => {
+    res.redirect('/restaurants')
+  })
+})
+
+app.get('/restaurants/new', (req, res) => {
+  res.render('newres.ejs')
+})
+
 app.get('/restaurants', (req, res) => {
   Restaurant.find({}, (err, allRest) => {
   res.render('restaurants.ejs', {restaurants: allRest})
@@ -74,7 +84,7 @@ app.get('/restaurants/:id', (req, res) => {
 })
 
 app.get('/restaurants/:id/:name', (req, res) => {
-  Restaurant.findById(req.params.id.name, (err, restaurant) => {
+  Restaurant.findById(req.params.id, (err, restaurant) => {
     res.render('foodshowpage.ejs', {restaurants: restaurant})
   })
 })
