@@ -71,6 +71,18 @@ app.get('/restaurants/new', (req, res) => {
   res.render('newres.ejs')
 })
 
+app.put('/restaurants/:id', (req, res) => {
+  Restaurant.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, rest) => {
+    res.redirect('/restaurants/:id')
+  })
+})
+
+app.get('/restaurants/:id/edit', (req, res) => {
+  Restaurant.findById(req.params.id, (err, foundRest) => {
+    res.render('editres.ejs', {restaurants: foundRest})
+  })
+})
+
 app.get('/restaurants', (req, res) => {
   Restaurant.find({}, (err, allRest) => {
   res.render('restaurants.ejs', {restaurants: allRest})
@@ -85,6 +97,7 @@ app.get('/restaurants/:id', (req, res) => {
 
 app.get('/restaurants/:id/:name', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
+    console.log(req.params.name)
     res.render('foodshowpage.ejs', {restaurants: restaurant})
   })
 })
