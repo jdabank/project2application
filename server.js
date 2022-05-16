@@ -95,6 +95,12 @@ app.get('/restaurants/:id', (req, res) => {
   })
 })
 
+app.delete('/restaurants/:id', (req, res) => {
+  Restaurant.findByIdAndRemove(req.params.id, (err, deleteRes) => {
+    res.redirect('/restaurants')
+  })
+})
+
 app.get('/restaurants/:id/:name', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     console.log(req.params.name)
