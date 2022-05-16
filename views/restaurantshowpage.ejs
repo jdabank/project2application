@@ -6,8 +6,20 @@
   </head>
   <body>
     <h1><%=restaurants.name%></h1>
+    <h4>Located in <%=restaurants.location%></h4>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Price (USD, + Tax)</th>
+        <th>Rating</th>
+      </tr>
     <%for (let i = 0; i < restaurants.food.length; i++){%>
-      <%=restaurants.food[i].name%>
+      <tr>
+      <td><a href = '/restaurants/<%=restaurants.id%>/<%=restaurants.food[i].name%>'><%=restaurants.food[i].name%></a></td>
+      <td><%=restaurants.food[i].price%></td>
+      <td><%=restaurants.food[i].rating%></td>
+      <tr>
     <%}%>
+  </table>
   </body>
 </html>
