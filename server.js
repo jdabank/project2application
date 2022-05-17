@@ -67,8 +67,24 @@ app.post('/restaurants', (req, res) => {
   })
 })
 
+app.post('/restaurants/:id', (req, res) => {
+  Restaurant.create(req.params.id, req.body, (err, madeFood) => {
+    res.redirect('/restaurants')
+  })
+})
+
 app.get('/restaurants/new', (req, res) => {
   res.render('newres.ejs')
+})
+
+app.get('/', (req, res) => {
+  res.redirect('/restaurants')
+})
+
+app.get('/restaurants/:id/new', (req, res) => {
+  Restaurant.findById(req.params.id, (err, restaurants) => {
+    res.render('newfood.ejs', {restaurants: restaurants})
+  })
 })
 
 app.put('/restaurants/:id', (req, res) => {
