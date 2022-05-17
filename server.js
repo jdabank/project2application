@@ -67,8 +67,8 @@ app.post('/restaurants', (req, res) => {
   })
 })
 
-app.post('/restaurants/:id', (req, res) => {
-  Restaurant.create(req.params.id, req.body, (err, madeFood) => {
+app.put('/restaurants/:id/new', (req, res) => {
+  Restaurant.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, rest) => {
     res.redirect('/restaurants')
   })
 })

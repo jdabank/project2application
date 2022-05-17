@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Add Food to <%=restaurants.name%></h1>
-    <form action="/restaurants/<%=restaurants.id%>" method="post">
+    <form action="/restaurants/<%=restaurants.id%>?_method=PUT" method="post">
       <input type="text" name="restaurants.food.name" placeholder="Name"><br>
       <input type="text" name="restaurants.food.price" placeholder="Price before Tax"><br>
       <input type="text" name="restaurants.food.rating" placeholder="Rating"><br>

@@ -1,5 +1,17 @@
 body {
   text-align: center;
+  background-color: skyblue;
+  font-family: arial;
+  color: white;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h4 {
+  margin-top: -15px;
+  font-family: sans-serif;
 }
 
 table {
@@ -9,4 +21,26 @@ table {
 
 td {
   padding: 15px
+}
+
+a {
+  color: navy;
+  text-decoration: overline underline;
+}
+
+a:hover{
+  color: white;
+}
+
+input {
+  background-color: white;
+  color: skyblue;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 14px;
+}
+
+input:hover {
+  background-color: skyblue;
+  color: white;
 }
