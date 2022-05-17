@@ -5,8 +5,25 @@
     <title></title>
   </head>
   <body>
-    <%=restaurants.food[index].name%>
-    <%=restaurants.food[index].rp%>
-    stuff
+    <h1><%=restaurants.food[index].name%></h1>
+    <h3>From <%=restaurants.name%></h3>
+    <h4>Price</h4>
+    <p><%=restaurants.food[index].price%></p>
+    <h4>Rating</h4>
+    <p><%=restaurants.food[index].rating%></p>
+    <h4>Was it Spicy?</h4>
+    <p><% if (restaurants.food[index].spicy === true){%>
+        Yes
+      <%} else {%>
+        No
+      <%}%>
+    </p>
+    <h4>Were you full after you finished?</h4>
+    <p><% if (restaurants.food[index].full === true){%>
+        Yes
+      <%} else {%>
+        No
+      <%}%>
+    </p>
   </body>
 </html>
