@@ -6,6 +6,11 @@
     <title>Edit</title>
   </head>
   <body>
-<p><%=restaurants.name%></p>
+    <h1>Edit <%=restaurants.name%></h1>
+    <form action='/restaurants/<%=restaurants.id%>?_method=PUT' method = 'POST'>
+    <input type='text' name = 'name' value = '<%=restaurants.name%>'><br>
+      <input type='text' name = 'location' value = '<%=restaurants.location%>'><br>
+      <input type='text' name = 'price' value = '<%=restaurants.price%>'><br>
+      <input type='submit' name='Edit Restaurant' value = 'Edit Restaurant'>
   </body>
 </html>

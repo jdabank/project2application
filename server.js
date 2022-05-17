@@ -73,7 +73,7 @@ app.get('/restaurants/new', (req, res) => {
 
 app.put('/restaurants/:id', (req, res) => {
   Restaurant.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, rest) => {
-    res.redirect('/restaurants/:id')
+    res.redirect('/restaurants')
   })
 })
 
